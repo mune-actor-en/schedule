@@ -1,5 +1,10 @@
 package bean;
 
+/**
+*
+* 祝日情報データ（モデル）
+*
+*/
 public class HolidayBean {
 
 	private String holidayId;
