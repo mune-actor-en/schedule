@@ -2,9 +2,22 @@ package bean;
 
 public class HolidayBean {
 
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
+	private String holidayId;
+	private String holidayName;
 
+	public void setHolidayId(String holidayId) {
+		this.holidayId = holidayId;
 	}
 
+	public String getHolidayId() {
+		return holidayId;
+	}
+
+	public void setHolidayName(String holidayName) {
+		this.holidayName = holidayName;
+	}
+
+	public String getHolidayName() {
+		return holidayName;
+	}
 }
