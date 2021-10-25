@@ -40,6 +40,17 @@ tr.day {
     height: auto !important;
 }
 
+tr *:first-child {
+  background-color:#FFCCCC;
+  color:red;
+
+}
+
+tr *:last-child {
+  background-color:#99CCFF;
+  color:blue;
+}
+
 div.date {
     font-size: 120%;
     font-weight: bold;
