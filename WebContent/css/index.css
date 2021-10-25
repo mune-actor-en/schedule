@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.font01{
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
 table {
     border-collapse: collapse;
     border-color: black;
