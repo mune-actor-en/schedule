@@ -14,7 +14,7 @@ public class CalendarBean implements Serializable {
 		this.year = year;
 	}
 
-	public int getYwar() {
+	public int getYear() {
 		return year;
 	}
 
