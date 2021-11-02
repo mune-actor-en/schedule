@@ -1,4 +1,8 @@
+<%@page import="bean.CalendarBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+  CalendarBean cb = (CalendarBean)request.getAttribute("mc");
+%>
 <!DOCTYPE html>
 <html>
 <head>
