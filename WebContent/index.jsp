@@ -1,7 +1,7 @@
-<%@page import="bean.CalendarBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="bean.CalendarBean"%>
 <%
-  CalendarBean cb = (CalendarBean)request.getAttribute("mc");
+CalendarBean calendarBean = (CalendarBean) request.getAttribute("CalendarBean");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,13 +12,11 @@
 <title>会議室予約</title>
 </head>
 <body>
-  <h1>会議室予約</h1>
   <div id="container" align="center">
+    <h1>会議室予約</h1>
     <div id="schedule_area">
       <div class="year_month"></div>
-      <a href="javascript:void(0);" onClick="false">前月</a>
-      <span>2021年10月</span>
-      <a href="javascript:void(0);" onClick="false">翌月</a>
+      <a href="javascript:void(0);" onClick="false">前月</a> <span><%=calendarBean.getYear()%>年<%=calendarBean.getMonth()%>月カレンダー</span> <a href="javascript:void(0);" onClick="false">翌月</a>
     </div>
     <table border="1">
       <tr>
@@ -29,6 +27,32 @@
         <th>木</th>
         <th>金</th>
         <th>土</th>
+      </tr>
+      <%
+      for (String[] row : calendarBean.getData()) {
+      %>
+      <tr>
+        <%
+        for (String col : row) {
+        %>
+        <%
+        if (col.startsWith("*")) {
+        %>
+        <td class="today"><%=col.substring(1)%></td>
+        <%
+        } else {
+        %>
+        <td><%=col%></td>
+        <%
+        }
+        %>
+        <%
+        }
+        %>
+      </tr>
+      <%
+      }
+      %>
     </table>
   </div>
 </body>

@@ -32,6 +32,11 @@ td.check {
     text-align: center;
     vertical-align: middle;
 }
+
+td.today{
+	background:#ffff80;
+}
+
 tr.cal {
     height: 125px;
 }
