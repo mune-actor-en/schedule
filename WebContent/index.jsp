@@ -1,8 +1,13 @@
+<%@page import="bean.MeetingCalendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="bean.CalendarBean"%>
 <%
-CalendarBean calendarBean = (CalendarBean) request.getAttribute("CalendarBean");
+// CalendarBean calendarBean = (CalendarBean)request.getAttribute("CalendarBean");
 %>
+
+<% MeetingCalendar meetingCalendar = new MeetingCalendar(); %>
+<% CalendarBean calendarBean = meetingCalendar.createCalendar(); %>
+
 <!DOCTYPE html>
 <html>
 <head>
