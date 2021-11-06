@@ -16,7 +16,9 @@ public class ScheduleService {
     private static final String PASS = "postgres";
 
     public static void main(String[] args) {
+
         Connection connection = null;
+
         try {
         	// データベースに接続
             Class.forName(POSTGRES_DRIVER);
