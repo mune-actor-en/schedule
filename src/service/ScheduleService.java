@@ -23,15 +23,18 @@ public class ScheduleService {
             // 接続先の情報
             connection = DriverManager.getConnection(JDBC_CONNECTION, USER, PASS);
 
+        // forName()で例外発生
         } catch(ClassNotFoundException e) {
         	e.printStackTrace();
 
+        // getConnection()で例外発生
         } catch(SQLException e) {
         	e.printStackTrace();
 
         } finally {
         	try {
         		if (connection != null) {
+        			// データベースを切断
         			connection.close();
         		}
 
