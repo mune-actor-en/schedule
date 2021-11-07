@@ -21,7 +21,7 @@
     <h1>会議室予約</h1>
     <div id="schedule_area">
       <div class="year_month"></div>
-      <a href="javascript:void(0);" onClick="false">前月</a> <span><%=calendarBean.getYear()%>年<%=calendarBean.getMonth()%>月カレンダー</span> <a href="javascript:void(0);" onClick="false">翌月</a>
+      <a href="javascript:void(0);" onClick="false">前月</a> <span><%=calendarBean.getYear()%>年<%=calendarBean.getMonth()%>月</span> <a href="javascript:void(0);" onClick="false">翌月</a>
     </div>
     <table border="1">
       <tr>
