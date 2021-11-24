@@ -2,7 +2,12 @@ package service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import bean.ReservationStatusBean;
 
 public class ScheduleService {
 
@@ -14,16 +19,23 @@ public class ScheduleService {
     private static final String USER = "postgres";
     // パスワード
     private static final String PASS = "postgres";
+    
+    // 予約状況クラスのインスタンスを生成
+    ReservationStatusBean reservationStatus = new ReservationStatusBean();
 
     public static void main(String[] args) {
 
         Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
 
         try {
         	// データベースに接続
             Class.forName(POSTGRES_DRIVER);
             // 接続先の情報
             connection = DriverManager.getConnection(JDBC_CONNECTION, USER, PASS);
+            statement = connection.createStatement();
 
         // forName()で例外発生
         } catch(ClassNotFoundException e) {

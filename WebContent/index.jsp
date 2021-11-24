@@ -43,11 +43,11 @@
         <%
         if (col.startsWith("*")) {
         %>
-        <td class="today"><%=col.substring(1)%></td>
+        <td class="today"><%=col.substring(1)%><br><></td>
         <%
         } else {
         %>
-        <td><%=col%></td>
+        <td><%=col%><br><></td>
         <%
         }
         %>
