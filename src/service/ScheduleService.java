@@ -23,14 +23,10 @@ public class ScheduleService {
 	private static final String TIME_FORMAT = "HH:mm";
 	// 予約状況を取得するSQL
 	private static final String SELECT_SQL = "SELECT mr.room_name, rs.user_name, rs.use_start_time, rs.use_end_time FROM meeting_rooms mr INNER JOIN reservation_status rs ON mr.room_id = rs.room_id;";
-
-	// 予約状況クラスのインスタンスを生成
-	// ReservationStatusBean reservationStatus = new ReservationStatusBean();
-	CalendarBean calendarbean = null;
 	
-	// public String roomName = calendarbean.getRoomName();
-
-	public static void main(String[] args) {
+	CalendarBean calendarBean = null;
+	
+	public CalendarBean main(String[] args) {
 
 		Connection connection = null;
 		Statement statement = null;
@@ -56,9 +52,14 @@ public class ScheduleService {
 				String tmpRoomName = resultSet.getString("room_name");
 				String tmpUserName = resultSet.getString("user_name");
 				String tmpUseStartTime = resultSet.getString("user_start_time");
-				String tmpUserEndTime = resultSet.getString("use_end_time");
+				String tmpUseEndTime = resultSet.getString("use_end_time");
 				
-				// calendarBean = new CalendarBean();
+				// 予約状況クラスのインスタンスを生成
+				calendarBean = new CalendarBean();
+				calendarBean.setRoomName(tmpRoomName);
+				calendarBean.setUserName(tmpUserName);
+				calendarBean.setUserName(tmpUseStartTime);
+				calendarBean.setUseEndTime(tmpUseEndTime);
 			}
 			
 			// forName()で例外発生
@@ -89,6 +90,7 @@ public class ScheduleService {
 				e.printStackTrace();
 			}
 		}
+		return calendarBean;
 	}
 
 }
