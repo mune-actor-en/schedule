@@ -1,12 +1,16 @@
 <%@page import="bean.MeetingCalendar"%>
+<%@page import="service.ScheduleService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="bean.CalendarBean"%>
 <%
 // CalendarBean calendarBean = (CalendarBean)request.getAttribute("CalendarBean");
 %>
 
+<% ScheduleService scheduleService = new ScheduleService(); %>
 <% MeetingCalendar meetingCalendar = new MeetingCalendar(); %>
 <% CalendarBean calendarBean = meetingCalendar.createCalendar(); %>
+<% // calendarBean = scheduleService.getCalendarBean(); %>
+
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +47,7 @@
         <%
         if (col.startsWith("*")) {
         %>
-        <td class="today"><%=col.substring(1)%><br><></td>
+        <td class="today"><%=col.substring(1)%><br><%=calendarBean.getRoomName() %><br></td>
         <%
         } else {
         %>

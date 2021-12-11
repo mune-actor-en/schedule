@@ -25,8 +25,8 @@ public class ScheduleService {
 	private static final String SELECT_SQL = "SELECT mr.room_name, rs.user_name, rs.use_start_time, rs.use_end_time FROM meeting_rooms mr INNER JOIN reservation_status rs ON mr.room_id = rs.room_id;";
 	
 	CalendarBean calendarBean = null;
-	
-	public CalendarBean main(String[] args) {
+	// 引数に年月が必要※今後修正する
+	public CalendarBean getCalendarBean() {
 
 		Connection connection = null;
 		Statement statement = null;
@@ -44,7 +44,6 @@ public class ScheduleService {
 			// String use_start_time = sdFormat.format(calendarbean.getUseStartTime());
 			
 			preparedStatement = connection.prepareStatement(SELECT_SQL);
-			// preparedStatement.setString(1, roomName);
 			
 			resultSet = preparedStatement.executeQuery();
 			

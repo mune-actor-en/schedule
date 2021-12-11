@@ -9,15 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.CalendarBean;
 import bean.MeetingCalendar;
+import service.ScheduleService;
 
 public class CalendarController extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String s_year = request.getParameter("year");
 		String s_month = request.getParameter("month");
 
+		ScheduleService scheduleService = new ScheduleService();
 		MeetingCalendar meetingCalendar = new MeetingCalendar();
 		CalendarBean calendarBean = null;
 
+		// Controllerでデータを加工し、jspは極力表示させるのみにする
+		
 		if(s_year != null && s_month != null) {
 			int year = Integer.parseInt(s_year);
 			int month = Integer.parseInt(s_month);
@@ -35,6 +39,10 @@ public class CalendarController extends HttpServlet {
 			// クエリパラメータがきていない場合、実行日時のカレンダーを生成
 			calendarBean = meetingCalendar.createCalendar();
 		}
+		
+		// データベースからデータを取得するインスタンスを生成
+		// calendarBean = scheduleService.getCalendarBean();
+		
 		request.setAttribute("CalendarBean", calendarBean);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
