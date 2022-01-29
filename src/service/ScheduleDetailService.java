@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Service
+ * Servlet implementation class ScheduleDetailService
  */
-@WebServlet("/Service")
-public class DBAccess extends HttpServlet {
+@WebServlet("/ScheduleDetailService")
+public class ScheduleDetailService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DBAccess() {
+    public ScheduleDetailService() {
         super();
         // TODO Auto-generated constructor stub
     }
